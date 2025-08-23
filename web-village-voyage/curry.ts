@@ -1,3 +1,5 @@
+import { curry2 } from "./lib/curry";
+
 function normal_sum(a, b) {
   return a + b;
 }
@@ -16,13 +18,6 @@ const decrement: Decrement = sum(-1);
 
 console.log(increment(6));
 console.log(decrement(6));
-
-// prettier-ignore
-type Curry2 = <A, B, Z>(f: (a: A, b: B) => Z)
-    => (a: A)
-    => (b: B)
-    => Z;
-const curry2: Curry2 = (f) => (a) => (b) => f(a, b);
 
 const sum2 = curry2(normal_sum);
 const increaseBy100 = sum2(100);
